@@ -21,7 +21,7 @@ function updateRecipe() {
 function displayEditForm() {
   let name = document.getElementById("nameHeader").innerText
   let description = document.getElementById("recipeDescription").innerText
-  let ingredientsNodes = document.getElementsByName("ingredientsList")
+  let ingredientsNodes = document.getElementsByName("ingredients")
   let ingredients = []
   for(let i=0;i<ingredientsNodes.length;i++) {
     ingredients.push(ingredientsNodes[i].innerText)
@@ -51,7 +51,7 @@ function getRecipeVals() {
 function handlebarsSetup() {
   //put any handlebars registrations here.
   Handlebars.registerHelper('displayIngredient', function(ingredient) {
-    return new Handlebars.SafeString('<li name="ingredientsList">' + ingredient + '</li>')
+    return new Handlebars.SafeString('<li name="ingredients">' + ingredient + '</li>')
   })
   Handlebars.registerPartial('recipeDetailsPartial', document.getElementById("recipe-details-partial").innerHTML)
   Handlebars.registerPartial('recipeFormPartial', document.getElementById("recipe-form-partial").innerHTML)
